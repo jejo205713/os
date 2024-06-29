@@ -1,22 +1,22 @@
 import os
 
-def list_directory_contents(directory_path):
+def dir_search(dp):
     # Try to open the directory
     try:
-        dir_entry = os.scandir(directory_path)
+        dir_entry = os.scandir(dp)
     except FileNotFoundError:
-        print(f"Directory '{directory_path}' not found.")
+        print(f"Directory '{dp}' not found.")
         return
 
     # If the directory was opened successfully, read its contents
-    print(f"Contents of the directory '{directory_path}':")
+    print(f"Contents of the directory '{dp}':")
     for entry in dir_entry:
         print(entry.name)
 
     # Close the directory
     dir_entry.close()
-    print(f"Directory '{directory_path}' closed.")
+    print(f"Directory '{dp}' closed.")
 
 if __name__ == "__main__":
-    directory_path = input("Enter the directory path: ")
-    list_directory_contents(directory_path)
+    dp = input("Enter the directory path: ")
+    dir_search(dp)
